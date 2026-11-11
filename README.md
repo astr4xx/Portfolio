@@ -19,4 +19,4 @@ Goals of my portfolio include:
 
 *Learning, building, and improving — one project at a time.* 🚀
 
-Visit my portfolio: https://astr4xx.github.io/portfolio/
+Visit my portfolio: https://astr4xx.github.io/Portfolio/
