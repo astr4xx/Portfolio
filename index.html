@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#09318D">
+<title>Ankit | Developer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#09318D; --white:#FFFFFF; --pink:#FD91CC;
+  --glass:rgba(255,255,255,.1); --glass2:rgba(255,255,255,.16); --edge:rgba(255,255,255,.28); --soft:rgba(255,255,255,.8);
+  --display:"Sora","Segoe UI",system-ui,sans-serif; --body:"DM Sans","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 90px);background:var(--blue)}
+body{margin:0;background:var(--blue);color:var(--white);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--blue);z-index:30}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px;border-radius:8px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.12}
+.glass{background:var(--glass);border:1px solid var(--edge);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:22px;box-shadow:0 20px 50px rgba(2,12,50,.35)}
+/* nav */
+header{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:31;margin-bottom:-76px}
+nav{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font:700 1.15rem var(--display);text-decoration:none;display:flex;align-items:center;gap:.55rem}
+.logo i{width:1.5rem;height:1.5rem;border-radius:7px;background:linear-gradient(135deg,var(--pink),#fff);display:inline-block}
+.pillnav{display:flex;gap:.3rem;padding:.35rem;border-radius:999px}
+.pillnav a{text-decoration:none;padding:.4rem 1.1rem;border-radius:999px;font-size:.93rem;color:var(--soft)}
+.pillnav a:hover{background:var(--glass2);color:var(--white)}
+.gbtn{text-decoration:none;padding:.5rem 1.2rem;border-radius:999px;font-size:.93rem;font-weight:500;white-space:nowrap}
+/* hero */
+.hero-bg{position:relative;background:
+  radial-gradient(65% 45% at 50% 70%,rgba(190,215,255,.85),rgba(70,120,240,.55) 45%,transparent 75%),
+  radial-gradient(90% 60% at 50% 0%,#0a3aa8,transparent 70%),var(--blue);overflow:hidden}
+.hero-bg::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(255,255,255,.5) 1.1px,transparent 1.3px) 0 0/16px 16px;
+  -webkit-mask-image:linear-gradient(90deg,#000,transparent 28%,transparent 72%,#000);mask-image:linear-gradient(90deg,#000,transparent 28%,transparent 72%,#000);opacity:.55}
+.hero{position:relative;text-align:center;padding:9rem 0 0}
+.tags{display:flex;justify-content:center;flex-wrap:wrap;gap:1.4rem;font-size:.85rem;color:var(--soft);margin-bottom:1.6rem}
+.hero h1{font-size:clamp(2.6rem,7.5vw,5rem);font-weight:300;letter-spacing:-.03em;position:relative;display:inline-block}
+.hero h1 b{font-weight:600}
+.fl{position:absolute;width:3rem;height:3rem;border-radius:16px;display:grid;place-items:center;font-size:1.2rem;box-shadow:0 10px 30px rgba(2,12,50,.4);border:1px solid var(--edge)}
+.fl.a{background:var(--pink);color:var(--blue);right:-2.2rem;top:-1.6rem;transform:rotate(12deg)}
+.fl.b{background:#4c7bff;left:-2.4rem;bottom:-.8rem;transform:rotate(-10deg)}
+.lead{max-width:34rem;margin:1.8rem auto 2rem;color:var(--soft);font-size:1.12rem}
+.btns{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.8rem 1.8rem;border-radius:999px;text-decoration:none;font-weight:500;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.pink{background:linear-gradient(135deg,var(--pink),#ff6fba);color:var(--blue);font-weight:700;box-shadow:0 10px 30px rgba(253,145,204,.5)}
+.btn.gl{background:var(--glass);border:1px solid var(--edge)}
+/* profile (top-right) */
+.profile{position:absolute;right:1.5rem;top:7.5rem;width:15rem;padding:1.2rem;text-align:left;z-index:2}
+.profile .row{display:flex;gap:.8rem;align-items:center;margin-bottom:.8rem}
+.av{width:3.2rem;height:3.2rem;border-radius:50%;background:linear-gradient(135deg,var(--pink),#fff);color:var(--blue);display:grid;place-items:center;font:700 1.3rem var(--display);flex:none}
+.profile b{font:600 1.05rem var(--display);display:block;line-height:1.2}
+.profile small{color:var(--soft)}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;list-style:none;margin:0;padding:0}
+.chips li{background:var(--glass2);border:1px solid var(--edge);border-radius:999px;padding:.05rem .7rem;font-size:.82rem}
+.profile p{margin:.8rem 0 0;font-size:.9rem;color:var(--pink);font-weight:500}
+/* tilted dashboard cards */
+.dash{position:relative;display:grid;grid-template-columns:1fr 1.05fr 1fr;gap:1.2rem;align-items:end;max-width:62rem;margin:4rem auto 0;padding:0 1.5rem;perspective:1400px}
+.dc{padding:1.3rem;min-height:15rem;text-align:left}
+.dc h2{font:600 1rem var(--body);display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.dc.l{transform:rotateY(14deg) rotate(-3deg) translateY(1.5rem);background:rgba(255,255,255,.88);color:var(--blue)}
+.dc.r{transform:rotateY(-14deg) rotate(3deg) translateY(1.5rem);background:rgba(255,255,255,.88);color:var(--blue)}
+.dc.c{background:linear-gradient(160deg,#ffb3dc,var(--pink) 55%,#f56db5);color:var(--blue);min-height:19rem;text-align:center;border-color:rgba(255,255,255,.6);box-shadow:0 30px 70px rgba(253,145,204,.45)}
+.dc.c h2{justify-content:center}
+.gauge{width:100%;max-width:15rem;margin:0 auto;display:block}
+.big{font:700 3.6rem/1 var(--display);margin-top:-2.8rem}
+.cap{font-size:.9rem;font-weight:500}
+.bar{display:grid;grid-template-columns:4.8rem 1fr 2rem;gap:.6rem;align-items:center;font-size:.85rem;margin-bottom:.7rem}
+.bar i{display:block;height:.7rem;border-radius:99px;background:linear-gradient(90deg,var(--pink),#c9a2ff)}
+.bar i.b{background:var(--blue)}
+.rec{display:flex;gap:.7rem;margin-bottom:.9rem;font-size:.88rem;line-height:1.35}
+.rec s{width:.7rem;height:.7rem;border-radius:50%;background:var(--pink);border:2px solid var(--blue);margin-top:.25rem;flex:none;text-decoration:none}
+.rec b{display:block;font-size:.95rem}
+.status{font:700 .72rem var(--body);background:var(--blue);color:var(--white);border-radius:99px;padding:.1rem .6rem;white-space:nowrap}
+.status.ok{background:var(--pink);color:var(--blue)}
+/* sections */
+section{padding:5.5rem 0 0}
+.sec-h{font-size:clamp(2rem,5vw,3rem);font-weight:300;letter-spacing:-.02em;margin-bottom:.6rem}
+.sec-h b{font-weight:600}
+.sub{color:var(--soft);margin:0 0 2.4rem;max-width:36rem}
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem}
+.about p{margin:0 0 1rem;color:var(--soft)}
+.sg{margin-bottom:1.3rem}.sg h3{font-size:.95rem;margin-bottom:.5rem;font-weight:600}
+.feature{display:grid;grid-template-columns:1.5fr 1fr;gap:2rem;padding:2rem;margin-bottom:1.6rem}
+.kicker{display:inline-block;background:var(--pink);color:var(--blue);border-radius:99px;padding:.05rem .8rem;font-size:.82rem;font-weight:700}
+.feature h3,.repo h3{font-weight:600}
+.feature h3{font-size:clamp(1.7rem,4vw,2.3rem);margin:.9rem 0 .7rem}
+.feature p,.repo p{margin:0 0 1rem;color:var(--soft)}
+.stats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.9rem;align-content:center}
+.stats li{background:var(--glass2);border:1px solid var(--edge);border-radius:16px;padding:.9rem}
+.stats b{display:block;font:700 1.7rem var(--display);color:var(--pink)}
+.stats span{font-size:.85rem;color:var(--soft)}
+.acts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.1rem}
+.ab{display:inline-block;text-decoration:none;font-weight:700;font-size:.92rem;padding:.5rem 1.15rem;border-radius:99px;border:1px solid var(--edge);background:var(--glass)}
+.ab.p{background:var(--pink);color:var(--blue);border-color:var(--pink)}
+.ab:hover{background:var(--white);color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(19rem,1fr));gap:1.4rem}
+.repo{padding:1.6rem;display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+.repo:hover{transform:translateY(-4px);border-color:var(--pink)}
+.repo h3{font-size:1.3rem;margin-bottom:.5rem}.repo p{flex:1}
+.meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:.85rem;color:var(--soft);margin-top:.9rem}
+.dot{width:.65rem;height:.65rem;border-radius:50%;display:inline-block;margin-right:.35rem}
+.next{border-style:dashed;display:grid;place-content:center;text-align:center;min-height:11rem;color:var(--soft)}
+.next b{font:600 1.15rem var(--display);color:var(--white)}
+.soc{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1.2rem}
+.soc a{text-decoration:none;padding:1.4rem;display:flex;gap:1rem;align-items:center;transition:transform .15s,border-color .15s}
+.soc a:hover{transform:translateY(-3px);border-color:var(--pink)}
+.soc .ic{width:3.2rem;height:3.2rem;border-radius:50%;background:var(--pink);color:var(--blue);display:grid;place-items:center;flex:none;transition:transform .2s,background .2s}
+.soc a:hover .ic{background:var(--white);transform:rotate(-8deg) scale(1.08)}
+.soc b{display:block;font:600 1.1rem var(--display)}
+.soc span{color:var(--soft);font-size:.9rem}
+.final{padding:5.5rem 0 4rem}
+.cta{text-align:center;padding:3.5rem 1.5rem;background:radial-gradient(70% 90% at 50% 0%,rgba(253,145,204,.35),transparent 70%),var(--glass)}
+.cta h2{font-size:clamp(2rem,5.5vw,3.4rem);font-weight:300;margin-bottom:.9rem}.cta h2 b{font-weight:600}
+.cta p{max-width:32rem;margin:0 auto 1.8rem;color:var(--soft);font-size:1.1rem}
+footer{text-align:center;padding:1.5rem 0 2.5rem;color:var(--soft);font-size:.9rem;border-top:1px solid var(--edge)}
+@media (max-width:1100px){.profile{position:static;margin:2.5rem auto 0;width:min(20rem,100%)}.hero{padding-bottom:0}}
+@media (max-width:820px){
+  .pillnav{display:none}.hero{padding-top:7.5rem}
+  .dash{grid-template-columns:1fr;margin-top:2.5rem}
+  .dc.l,.dc.r{transform:none}.dc.c{order:-1}
+  .about,.feature{grid-template-columns:1fr}
+  .fl{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.repo,.soc a{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <a class="logo" href="#home"><i></i>astr4xx</a>
+  <div class="pillnav glass"><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#connect">Connect</a></div>
+  <a class="gbtn glass" id="navgh" target="_blank" rel="noopener">GitHub</a>
+</nav></div></header>
+
+<main id="home">
+  <div class="hero-bg"><div class="wrap hero">
+    <aside class="profile glass" aria-label="About me">
+      <div class="row"><div class="av">A</div><div><b>Ankit</b><small>@astr4xx</small></div></div>
+      <ul class="chips"><li>Python</li><li>C++</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul>
+      <p>Learn. Build. Repeat. 🚀</p>
+    </aside>
+    <div class="tags"><span>→ Python</span><span>→ C++</span><span>→ Web Development</span></div>
+    <h1><span class="fl a">✦</span>Turning ideas into <b>real projects</b><span class="fl b">&lt;/&gt;</span></h1>
+    <p class="lead">Hey, I’m Ankit, a CSE student building things for the web. Every project I push to GitHub shows up here automatically.</p>
+    <div class="btns"><a class="btn pink" href="#projects">View projects</a><a class="btn gl" href="#connect">Get in touch</a></div>
+
+    <div class="dash">
+      <div class="dc l glass"><h2>Languages used</h2><div id="langs"></div></div>
+      <div class="dc c glass"><h2>Projects built <span class="status" id="status">loading</span></h2>
+        <svg class="gauge" viewBox="0 0 200 110" aria-hidden="true">
+          <path d="M20 100 A80 80 0 0 1 180 100" pathLength="100" fill="none" stroke="rgba(9,49,141,.35)" stroke-width="14" stroke-dasharray=".8 1.7"/>
+          <path id="arc" d="M20 100 A80 80 0 0 1 180 100" pathLength="100" fill="none" stroke="#09318D" stroke-width="6" stroke-linecap="round" stroke-dasharray="0 100"/>
+        </svg>
+        <div class="big" id="n-repos">–</div><div class="cap" id="n-sub">on GitHub</div>
+      </div>
+      <div class="dc r glass"><h2>Recent pushes</h2><div id="recent"></div></div>
+    </div>
+  </div></div>
+
+  <section id="about"><div class="wrap about">
+    <div><h2 class="sec-h">About <b>me</b></h2><div id="about-text"></div></div>
+    <div id="skills"></div>
+  </div></section>
+
+  <section id="projects"><div class="wrap">
+    <h2 class="sec-h">Featured <b>projects</b></h2>
+    <p class="sub">Loaded live from my GitHub, with links to each project’s website and code.</p>
+    <div id="feat"></div><div class="grid" id="grid"></div>
+  </div></section>
+
+  <section id="connect"><div class="wrap">
+    <h2 class="sec-h">Let’s <b>connect</b></h2>
+    <p class="sub">Find me around the internet.</p>
+    <div class="soc" id="soc"></div>
+  </div></section>
+
+  <section class="final"><div class="wrap"><div class="cta glass">
+    <h2>Have an idea? <b>Let’s build.</b></h2>
+    <p>I’m at the start of my developer journey and always looking for something new to learn and create.</p>
+    <a class="btn pink" id="cta" target="_blank" rel="noopener">Visit my GitHub ↗</a>
+  </div></div></section>
+</main>
+<footer><div class="wrap">Designed with curiosity and a little bit of code · © Ankit</div></footer>
+
+<script>
+/* ============ EDIT HERE (projects come from GitHub automatically) ============ */
+const USER = "astr4xx";
+const HIDE_REPOS = ["astr4xx.github.io", "astr4xx"];
+const SITE = {
+  skills: [
+    { g: "Languages", i: ["Python", "C++", "JavaScript"] },
+    { g: "Web", i: ["HTML", "CSS", "FastAPI", "Leaflet.js"] },
+    { g: "Tools", i: ["Git", "GitHub", "Docker", "Pytest"] }
+  ],
+  about: [
+    "I’m a CSE student from India who learns by building. My biggest project so far is ThermoGuard AI, a heatwave early-warning platform built for the Smart India Hackathon.",
+    "I’m also working through C++ fundamentals and getting better at web development, always looking for the next thing to make."
+  ],
+  social: [
+    { n: "Instagram", x: "@astr4xx_", u: "https://www.instagram.com/astr4xx_", i: "instagram" },
+    { n: "X", x: "@duIXH1", u: "https://x.com/duIXH1", i: "x" },
+    { n: "Telegram", x: "@Tralalerotralalalirili", u: "https://t.me/Tralalerotralalalirili", i: "telegram" },
+    { n: "Discord", x: "Message me on Discord", u: "https://discord.com/users/869136766664327208", i: "discord" }
+  ]
+};
+/* Optional extra detail per repo name. featured:true shows it as the large card. */
+const EXTRA = {
+  "sih26083-heatwave-warning": {
+    featured: true, title: "ThermoGuard AI", kicker: "AI · Climate · Smart India Hackathon 2026",
+    text: "A heatwave early-warning platform that combines weather forecasts, human thermal-stress indices and ward-level vulnerability data to show which areas are most at risk and send alerts before dangerous heat arrives.",
+    stats: [["58", "passing tests"], ["48", "city wards mapped"], ["3", "heat-stress indices"], ["5-day", "risk forecast"]],
+    live: "https://sih-heatwave-projection.vercel.app", tags: ["Python", "FastAPI", "Leaflet.js", "Docker"]
+  },
+  "Learning-C-": { title: "Learning C++", text: "My practice repository for C++ fundamentals, where I keep the programs I write while learning." }
+};
+const FALLBACK = { user: { followers: 0 }, repos: [
+  { name: "sih26083-heatwave-warning", description: "", language: "Python", html_url: "https://github.com/astr4xx/sih26083-heatwave-warning", homepage: "https://sih-heatwave-projection.vercel.app", stargazers_count: 0, pushed_at: "2026-11-11T00:00:00Z", topics: [], fork: false },
+  { name: "Learning-C-", description: "", language: "C++", html_url: "https://github.com/astr4xx/Learning-C-", homepage: "", stargazers_count: 0, pushed_at: "2026-09-01T00:00:00Z", topics: [], fork: false }
+]};
+/* ============================================================================== */
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = d => new Date(d).toLocaleDateString("en", { month: "short", day: "numeric", year: "numeric" });
+const pretty = n => n.replace(/[-_]+/g, " ").trim().replace(/\b\w/g, c => c.toUpperCase());
+const COLORS = { Python:"#3572A5", "C++":"#f34b7d", JavaScript:"#f1e05a", HTML:"#e34c26", CSS:"#a78bfa", C:"#aaaaaa", TypeScript:"#3178c6" };
+const chips = a => `<ul class="chips">${a.map(t => `<li>${esc(t)}</li>`).join("")}</ul>`;
+const url = u => /^https?:\/\//i.test(u || "") ? u : "";
+const ttl = r => (EXTRA[r.name] && EXTRA[r.name].title) || pretty(r.name);
+
+$("about-text").innerHTML = SITE.about.map(p => `<p>${esc(p)}</p>`).join("");
+$("skills").innerHTML = SITE.skills.map(s => `<div class="sg"><h3>${esc(s.g)}</h3>${chips(s.i)}</div>`).join("");
+const SV = p => `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+const ICONS = {
+  instagram: SV('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/>'),
+  x: SV('<path d="M4 4l16 16M20 4L4 20"/>'),
+  telegram: SV('<path d="M21.5 3.5L2.5 11l6.2 2.3L10.5 20l3.4-4.4 4.9 3.6z"/><path d="M8.7 13.3l12.8-9.8"/>'),
+  discord: SV('<path d="M5.5 6.5C7.5 5 9.5 4.5 12 4.5s4.5.5 6.5 2c1.6 3 2.6 6.5 2.8 10.5-2 1.6-4 2.4-6 2.6l-1-2.1c-.9.2-1.5.3-2.3.3s-1.4-.1-2.3-.3l-1 2.1c-2-.2-4-1-6-2.6.2-4 1.2-7.500 2.8-10.500z"/><circle cx="9" cy="12" r="1" fill="currentColor"/><circle cx="15" cy="12" r="1" fill="currentColor"/>')
+};
+$("soc").innerHTML = SITE.social.map(s => `<a class="glass" href="${esc(s.u)}" target="_blank" rel="noopener" aria-label="${esc(s.n)}: ${esc(s.x)}"><span class="ic">${ICONS[s.i] || ""}</span><div><b>${esc(s.n)}</b><span>${esc(s.x)}</span></div></a>`).join("");
+$("navgh").href = $("cta").href = "https://github.com/" + USER;
+
+function card(r) {
+  const x = EXTRA[r.name] || {}, live = url(x.live || r.homepage);
+  return `<article class="repo glass"><h3>${esc(ttl(r))}</h3>
+    <p>${esc(x.text || r.description || "No description yet. Add one on GitHub and it will appear here.")}</p>
+    ${r.topics && r.topics.length ? chips(r.topics.slice(0, 4)) : ""}
+    <div class="meta">${r.language ? `<span><i class="dot" style="background:${COLORS[r.language] || "#FD91CC"}"></i>${esc(r.language)}</span>` : ""}<span>★ ${r.stargazers_count || 0}</span><span>Updated ${fmt(r.pushed_at)}</span></div>
+    <div class="acts">${live ? `<a class="ab p" href="${esc(live)}" target="_blank" rel="noopener">Visit website ↗</a>` : ""}<a class="ab" href="${esc(r.html_url)}" target="_blank" rel="noopener">Code ↗</a></div></article>`;
+}
+
+function render(data, live) {
+  const repos = data.repos.filter(r => !r.fork && !HIDE_REPOS.includes(r.name)).sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+  const feat = repos.find(r => EXTRA[r.name] && EXTRA[r.name].featured);
+  const rest = repos.filter(r => r !== feat);
+
+  $("status").textContent = live ? "● live" : "snapshot";
+  $("status").className = "status" + (live ? " ok" : "");
+  $("n-repos").textContent = repos.length;
+  $("n-sub").textContent = `${repos.reduce((s, r) => s + (r.stargazers_count || 0), 0)} stars · ${data.user.followers || 0} followers`;
+  $("arc").setAttribute("stroke-dasharray", `${Math.min(repos.length / 10, 1) * 100} 100`);
+
+  const counts = {};
+  repos.forEach(r => { if (r.language) counts[r.language] = (counts[r.language] || 0) + 1; });
+  const langs = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 5), max = langs.length ? langs[0][1] : 1;
+  $("langs").innerHTML = langs.map(([l, n], i) => `<div class="bar"><span>${esc(l)}</span><i class="${i % 2 ? "b" : ""}" style="width:${Math.max(n / max * 100, 18)}%"></i><span>${n}</span></div>`).join("") || "<small>No languages yet</small>";
+  $("recent").innerHTML = repos.slice(0, 3).map(r => `<div class="rec"><s></s><div><b>${esc(ttl(r))}</b>${fmt(r.pushed_at)}</div></div>`).join("");
+
+  if (feat) {
+    const x = EXTRA[feat.name], site = url(x.live || feat.homepage);
+    $("feat").innerHTML = `<article class="feature glass"><div><span class="kicker">${esc(x.kicker || "Featured")}</span><h3>${esc(ttl(feat))}</h3><p>${esc(x.text || feat.description)}</p>${chips(x.tags || [feat.language].filter(Boolean))}
+      <div class="acts">${site ? `<a class="ab p" href="${esc(site)}" target="_blank" rel="noopener">Visit website ↗</a>` : ""}<a class="ab" href="${esc(feat.html_url)}" target="_blank" rel="noopener">Source code ↗</a></div></div>
+      <ul class="stats">${(x.stats || []).map(s => `<li><b>${esc(s[0])}</b><span>${esc(s[1])}</span></li>`).join("")}</ul></article>`;
+  } else $("feat").innerHTML = "";
+  $("grid").innerHTML = rest.map(card).join("") + `<div class="repo glass next"><div><b>Your next project</b><p style="margin:.4rem 0 0">Push a repo to GitHub and it appears here automatically.</p></div></div>`;
+}
+
+async function init() {
+  const KEY = "gh-portfolio-" + USER, h = { headers: { Accept: "application/vnd.github+json" } };
+  try {
+    const [r, u] = await Promise.all([fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=pushed`, h), fetch(`https://api.github.com/users/${USER}`, h)]);
+    if (!r.ok || !u.ok) throw new Error("GitHub " + r.status);
+    const data = { repos: await r.json(), user: await u.json() };
+    try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {}
+    render(data, true);
+  } catch (e) {
+    let c = null; try { c = JSON.parse(localStorage.getItem(KEY)); } catch (e2) {}
+    render(c && c.repos ? c : FALLBACK, false);
+  }
+}
+render(FALLBACK, false);
+init();
+</script>
+</body>
+</html>
